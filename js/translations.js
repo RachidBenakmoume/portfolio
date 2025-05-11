@@ -102,7 +102,7 @@ const translations = {
     hero_title: "Full Stack Developer & Designer",
     hero_description: "Innovative Digital Solutions • Modern Software Architecture",
     hero_button: "Contact Me",
-    hero_download_cv: "Download CV",
+    hero_download_cv: "Download Resume",
     
     // About Section
     about_title: "About Me",
