@@ -46,11 +46,21 @@ function initThemeToggle() {
       icon.classList.remove('fa-moon');
       icon.classList.add('fa-sun');
       themeToggle.classList.add('light');
+      // Update profile image for light theme
+      const profileImg = document.querySelector('.about-img');
+      if (profileImg) {
+        profileImg.src = './assets/profile-pic-light.png';
+      }
     } else {
       root.classList.remove('light-theme');
       icon.classList.remove('fa-sun');
       icon.classList.add('fa-moon');
       themeToggle.classList.remove('light');
+      // Update profile image for dark theme
+      const profileImg = document.querySelector('.about-img');
+      if (profileImg) {
+        profileImg.src = './assets/profile-pic-dark.png';
+      }
     }
   }
 }
