@@ -1,0 +1,61 @@
+/* Navbar Styles */
+.navbar {
+    background-color: transparent;
+    transition: all 0.5s ease;
+    padding: 1rem 2rem;
+}
+
+.navbar.scrolled {
+    background-color: var(--primary);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 2rem;
+}
+
+/* Light theme navbar adjustments */
+:root.light-theme .navbar.scrolled {
+    background-color: var(--primary);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--light) !important;
+}
+
+.nav-link {
+    color: var(--light) !important;
+    font-weight: 500;
+    margin: 0 10px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Keep navbar text light even in light mode since it starts transparent over hero image */
+:root.light-theme .navbar:not(.scrolled) .navbar-brand,
+:root.light-theme .navbar:not(.scrolled) .nav-link {
+    color: var(--light) !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Change navbar text color only when scrolled in light mode */
+:root.light-theme .navbar.scrolled .navbar-brand,
+:root.light-theme .navbar.scrolled .nav-link {
+    color: var(--text-primary) !important;
+    text-shadow: none;
+}
+
+.nav-link:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary);
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover:after, .nav-link.active:after {
+    width: 100%;
+} 

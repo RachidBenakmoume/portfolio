@@ -1,0 +1,22 @@
+/* Main CSS File - Imports all section styles */
+
+/* Import variables first as they are used by other files */
+@import 'sections/variables.css';
+
+/* Import base styles */
+@import 'sections/base.css';
+
+/* Import component styles */
+@import 'sections/navbar.css';
+@import 'sections/hero.css';
+@import 'sections/about.css';
+@import 'sections/experience.css';
+@import 'sections/projects.css';
+@import 'sections/education.css';
+@import 'sections/contact.css';
+@import 'sections/footer.css';
+
+/* Import utility styles */
+@import 'sections/animations.css';
+@import 'sections/responsive.css';
+@import 'sections/controls.css'; 

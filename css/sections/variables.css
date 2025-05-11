@@ -1,0 +1,26 @@
+/* Theme Variables */
+:root {
+    /* Dark theme (default) */
+    --primary: #121212;
+    --secondary: #BB86FC;
+    --light: #e1e1e1;
+    --dark: #1e1e1e;
+    --accent: #03DAC6;
+    --surface: #1f1f1f;
+    --error: #CF6679;
+    --text-primary: #FFFFFF;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+}
+
+/* Light theme */
+:root.light-theme {
+    --primary: #f8f9fa;
+    --secondary: #6200EE;
+    --light: #ffffff;
+    --dark: #e0e0e0;
+    --accent: #03DAC6;
+    --surface: #ffffff;
+    --error: #B00020;
+    --text-primary: #212121;
+    --text-secondary: rgba(0, 0, 0, 0.7);
+} 

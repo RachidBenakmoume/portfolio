@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rachid BENAKMOUME - Portfolio</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+    <link href="css/main.css" rel="stylesheet" />
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+
+    <!-- Project data and translations -->
+    <script src="js/projects.js"></script>
+    <script src="js/translations.js"></script>
+
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "eLWRzRsxdoVxckkIj",
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#hero" data-i18n="nav_home"
+                >Accueil</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about" data-i18n="nav_about"
+                >À propos</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#experience" data-i18n="nav_experience"
+                >Expérience</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects" data-i18n="nav_projects"
+                >Projets</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#education" data-i18n="nav_education"
+                >Formation</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact" data-i18n="nav_contact"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Rachid BENAKMOUME</h1>
+          <h2 class="hero-subtitle" data-i18n="hero_title">
+            Concepteur & Développeur Full Stack
+          </h2>
+          <p class="hero-description mb-4" data-i18n="hero_description">
+            Créations numériques innovantes • Architecture logicielle moderne
+          </p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn hero-btn" data-i18n="hero_button"
+              >Me Contacter</a
+            >
+            <a
+              href="assets/CV_Rachid.pdf"
+              class="btn hero-btn download-btn"
+              download
+              data-i18n="hero_download_cv"
+            >
+              <i class="fas fa-download me-2"></i>Télécharger CV
+            </a>
+          </div>
+        </div>
+        <div class="particles-container"></div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center mb-5">
+            <h2
+              class="section-title"
+              data-aos="fade-up"
+              data-i18n="about_title"
+            >
+              À propos de moi
+            </h2>
+          </div>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-lg-5 mb-4 mb-lg-0" data-aos="fade-right">
+            <img
+              src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+              alt="Professional Developer"
+              class="img-fluid about-img"
+            />
+          </div>
+          <div class="col-lg-7" data-aos="fade-left">
+            <div class="about-text">
+              <p data-i18n="about_text_1">
+                Étant en phase finale de mon parcours d'études en informatique à
+                l'Université de Bretagne Occidentale, je conjugue formation
+                théorique approfondie et expérience pratique dans le
+                développement d'applications web. Ma passion pour la création de
+                solutions digitales m'a conduit à maîtriser divers
+                environnements technologiques.
+              </p>
+              <p data-i18n="about_text_2">
+                Mes compétences techniques couvrent l'ensemble du spectre du
+                développement, de la conception d'interfaces utilisateur
+                réactives jusqu'à l'implémentation d'architectures backend
+                robustes. Je porte une attention particulière à la qualité du
+                code et aux méthodologies de test, garantissant ainsi des
+                applications fiables et performantes.
+              </p>
+            </div>
+            <div class="skills mt-4">
+              <h3 class="mb-4" data-i18n="skills_title">Mes compétences</h3>
+              <!-- Skills below can be translated too if desired -->
+              <div class="skill-bar">
+                <div class="skill-name">Angular/TypeScript</div>
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    data-progress="70"
+                    style="width: 0%"
+                  ></div>
+                </div>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-name">Spring Boot/Java</div>
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    data-progress="80"
+                    style="width: 0%"
+                  ></div>
+                </div>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-name">MySQL/SQL</div>
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    data-progress="80"
+                    style="width: 0%"
+                  ></div>
+                </div>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-name">CI/CD & DevOps</div>
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    data-progress="65"
+                    style="width: 0%"
+                  ></div>
+                </div>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-name">Tests logiciels (JUnit, Mockito)</div>
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    data-progress="70"
+                    style="width: 0%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <!-- Experience Section -->
+    <section id="experience">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center mb-5">
+            <h2
+              class="section-title"
+              data-aos="fade-up"
+              data-i18n="experience_title"
+            >
+              Expérience Professionnelle
+            </h2>
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item left" data-aos="fade-right">
+            <div class="timeline-content">
+              <div class="timeline-date" data-i18n="exp1_date">
+                04/2025 - Présent
+              </div>
+              <h3 class="timeline-title" data-i18n="exp1_title">
+                Stage en Développement d'Applications
+              </h3>
+              <h4 data-i18n="exp1_company">Consort France</h4>
+              <p data-i18n="exp1_desc">
+                En charge de l'élaboration d'une solution de gestion intégrée
+                pour le centre de services, couvrant multiples aspects
+                opérationnels de l'entreprise.
+              </p>
+              <ul>
+                <li data-i18n="exp1_point1">
+                  Développement d'une couverture de tests unitaires complète,
+                  garantissant la fiabilité du code
+                </li>
+                <li data-i18n="exp1_point2">
+                  Intégration d'analyses de qualité et sécurité via SonarQube,
+                  optimisant la maintenance
+                </li>
+                <li data-i18n="exp1_point3">
+                  Configuration de l'environnement DevOps avec Azure pour une
+                  livraison continue
+                </li>
+                <li data-i18n="exp1_point4">
+                  Implémentation de fonctionnalités IA pour l'analyse prédictive
+                  des incidents
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item right" data-aos="fade-left">
+            <div class="timeline-content">
+              <div class="timeline-date" data-i18n="exp2_date">
+                02/2024 - 05/2024
+              </div>
+              <h3 class="timeline-title" data-i18n="exp2_title">
+                Stage en Conception Web
+              </h3>
+              <h4 data-i18n="exp2_company">Entreprise Portuaire d'Alger</h4>
+              <p data-i18n="exp2_desc">
+                Conception et implémentation d'une solution digitale pour la
+                gestion du personnel.
+              </p>
+              <ul>
+                <li data-i18n="exp2_point1">
+                  Développement d'une interface utilisateur intuitive avec
+                  Laravel et Bootstrap
+                </li>
+                <li data-i18n="exp2_point2">
+                  Optimisation des flux de données avec l'infrastructure
+                  existante
+                </li>
+                <li data-i18n="exp2_point3">
+                  Automatisation des processus de validation et notification
+                </li>
+                <li data-i18n="exp2_point4">
+                  Amélioration de la productivité RH et satisfaction des
+                  employés
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section - Updated with Gallery Support -->
+    <section id="projects">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center mb-4">
+            <h2
+              class="section-title"
+              data-aos="fade-up"
+              data-i18n="projects_title"
+            >
+              Projets
+            </h2>
+          </div>
+        </div>
+
+        <!-- Category filters -->
+        <div class="projects-filter text-center mb-4" data-aos="fade-up">
+          <button
+            class="filter-btn active"
+            data-filter="all"
+            data-i18n="allProjects"
+          >
+            Tous les projets
+          </button>
+        </div>
+
+        <!-- Projects carousel/slider container -->
+        <div class="projects-slider-container" data-aos="fade-up">
+          <div class="projects-slider-wrapper">
+            <!-- Projects will be dynamically inserted here by JavaScript -->
+            <div id="projects-container" class="projects-slider">
+              <!-- Loading placeholder that will be replaced by JS -->
+              <div class="projects-loading">
+                <div class="spinner-border text-secondary" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation arrows -->
+          <button class="slider-nav prev-btn" aria-label="Previous projects">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="slider-nav next-btn" aria-label="Next projects">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- Pagination dots -->
+        <div class="slider-pagination text-center mt-4" id="slider-pagination">
+          <!-- Pagination dots will be dynamically inserted here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center mb-5">
+            <h2
+              class="section-title"
+              data-aos="fade-up"
+              data-i18n="education_title"
+            >
+              Formation
+            </h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="education-card">
+              <div class="education-date" data-i18n="edu1_date">
+                09/2023 - Présent
+              </div>
+              <h3 class="education-title" data-i18n="edu1_title">
+                Licence Informatique – Fondamentaux et Applications
+              </h3>
+              <div class="education-location" data-i18n="edu1_location">
+                Université de Bretagne Occidentale – Brest, France
+              </div>
+              <p data-i18n="edu1_intro">Axes principaux :</p>
+              <ul>
+                <li data-i18n="edu1_point1">
+                  Conception et modélisation de systèmes informatiques complexes
+                </li>
+                <li data-i18n="edu1_point2">
+                  Développement d'applications à partir de méthodologies agiles
+                </li>
+                <li data-i18n="edu1_point3">
+                  Exploration des architectures matérielles et protocoles réseau
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="education-card">
+              <div class="education-date" data-i18n="edu2_date">
+                09/2021 - 06/2024
+              </div>
+              <h3 class="education-title" data-i18n="edu2_title">
+                Licence en Génie Logiciel et Systèmes d'Information
+              </h3>
+              <div class="education-location" data-i18n="edu2_location">
+                Université Houari Boumediene – Alger, Algérie
+              </div>
+              <p data-i18n="edu2_intro">Domaines d'expertise :</p>
+              <ul>
+                <li data-i18n="edu2_point1">
+                  Architecture et conception d'applications évolutives
+                </li>
+                <li data-i18n="edu2_point2">
+                  Méthodologies de développement et assurance qualité
+                </li>
+                <li data-i18n="edu2_point3">
+                  Intégration de systèmes et solutions logicielles d'entreprise
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="education-card">
+              <div class="education-date" data-i18n="edu3_date">2023</div>
+              <h3 class="education-title" data-i18n="edu3_title">
+                CLES B2 Anglais
+              </h3>
+              <div class="education-location" data-i18n="edu3_location">
+                Certification de compétence en langue anglaise
+              </div>
+              <p data-i18n="edu3_desc">
+                Maîtrise professionnelle de la communication en anglais, écrite
+                et orale
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center mb-5">
+            <h2
+              class="section-title"
+              data-aos="fade-up"
+              data-i18n="contact_title"
+            >
+              Contact
+            </h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
+            <div class="contact-info">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <h3 data-i18n="contact_email">Email</h3>
+                  <p>rachid.benakmoume@gmail.com</p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <h3 data-i18n="contact_location">Localisation</h3>
+                  <p>Toulouse, France</p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-globe"></i>
+                </div>
+                <div>
+                  <h3 data-i18n="contact_languages">Langues</h3>
+                  <p data-i18n="contact_languages_list">
+                    Français (Avancé), Anglais (Avancé)
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7" data-aos="fade-left">
+            <form class="contact-form">
+              <div class="row">
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Votre nom"
+                    required
+                    data-i18n="contact_name"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Votre email"
+                    required
+                    data-i18n="contact_email_input"
+                  />
+                </div>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Sujet"
+                required
+                data-i18n="contact_subject"
+              />
+              <textarea
+                class="form-control"
+                rows="5"
+                placeholder="Message"
+                required
+                data-i18n="contact_message"
+              ></textarea>
+              <button
+                type="submit"
+                class="btn btn-submit"
+                data-i18n="contact_send"
+              >
+                Envoyer
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="social-icons">
+          <a
+            href="https://www.linkedin.com/in/abderrachid-benakmoume/"
+            class="social-icon"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a href="https://github.com/RachidBenakmoume" class="social-icon"
+            ><i class="fab fa-github"></i
+          ></a>
+        </div>
+        <p class="footer-text">Rachid BENAKMOUME &copy; 2025.</p>
+      </div>
+    </footer>
+
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle" id="themeToggle">
+      <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Language Toggle Button with Flag -->
+    <div class="language-toggle" id="languageToggle">
+      <div class="flag flag-fr"></div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- Gallery functionality (single file approach) -->
+    <script src="js/projects-gallery.js"></script>
+
+    <!-- Main JS (core functionality) -->
+    <script src="js/main.js"></script>
+  </body>
+</html>

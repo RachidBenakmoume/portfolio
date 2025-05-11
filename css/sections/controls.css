@@ -1,0 +1,89 @@
+/* Theme and Language Toggle Controls */
+.theme-toggle,
+.language-toggle {
+    position: fixed;
+    bottom: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle {
+    right: 30px;
+}
+
+.language-toggle {
+    right: 90px;
+}
+
+.theme-toggle i {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover,
+.language-toggle:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Flag styles */
+.flag {
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.flag-fr {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"><rect width="900" height="600" fill="%23ED2939"/><rect width="600" height="600" fill="%23fff"/><rect width="300" height="600" fill="%23002395"/></svg>');
+}
+
+.flag-en {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"><clipPath id="a"><path d="M0 0v30h60V0z"/></clipPath><clipPath id="b"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(%23a)"><path d="M0 0v30h60V0z" fill="%23012169"/><path d="M0 0l60 30m0-30L0 30" stroke="%23fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(%23b)" stroke="%23C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="%23fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="%23C8102E" stroke-width="6"/></g></svg>');
+}
+
+/* Light theme adjustments */
+:root.light-theme .theme-toggle,
+:root.light-theme .language-toggle {
+    background-color: var(--light);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+:root.light-theme .theme-toggle i {
+    color: var(--text-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .theme-toggle,
+    .language-toggle {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+    }
+    
+    .theme-toggle {
+        right: 20px;
+    }
+    
+    .language-toggle {
+        right: 75px;
+    }
+    
+    .flag {
+        width: 20px;
+        height: 20px;
+    }
+} 

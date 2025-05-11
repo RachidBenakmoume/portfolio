@@ -1,0 +1,51 @@
+/* Footer Styles */
+footer {
+    background-color: var(--dark);
+    padding: 30px 0;
+    color: var(--light);
+    text-align: center;
+}
+
+/* Fix light mode footer */
+:root.light-theme footer {
+    background-color: #f9f9f9;
+    color: #333;
+    border-top: 1px solid #ddd;
+}
+
+.social-icons {
+    margin-bottom: 20px;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    margin: 0 5px;
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--secondary);
+    transform: translateY(-5px);
+}
+
+:root.light-theme .social-icon {
+    color: #333;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+:root.light-theme .social-icon:hover {
+    background-color: #0077b5;
+    color: white;
+}
+
+.footer-text {
+    opacity: 0.8;
+} 

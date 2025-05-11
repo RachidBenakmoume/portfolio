@@ -1,0 +1,72 @@
+/* About Section Styles */
+#about {
+    padding: 100px 0;
+    position: relative;
+    background-color: var(--surface);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 4px;
+    background-color: var(--secondary);
+    bottom: -10px;
+    left: 0;
+}
+
+.about-img {
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform: rotate(-3deg);
+    transition: all 0.5s ease;
+}
+
+.about-img:hover {
+    transform: rotate(0);
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.skill-bar {
+    margin-bottom: 30px;
+}
+
+.skill-name {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.progress {
+    height: 10px;
+    border-radius: 50px;
+    background-color: var(--dark);
+    overflow: visible;
+}
+
+.progress-bar {
+    background-color: var(--secondary);
+    border-radius: 50px;
+    position: relative;
+    transition: width 1.5s ease-in-out;
+}
+
+.progress-bar:after {
+    content: attr(data-progress) '%';
+    position: absolute;
+    right: 0;
+    top: -25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+} 
