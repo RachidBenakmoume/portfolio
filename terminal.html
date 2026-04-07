@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <title>Rachid Benakmoume - Terminal</title>
+  <meta name="description" content="Rachid Benakmoume - Interactive Terminal Portfolio" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link href="css/main.css" rel="stylesheet" />
+  <link href="css/terminal.css" rel="stylesheet" />
+
+  <!-- Data -->
+  <script src="js/projects.js"></script>
+  <script src="js/translations.js"></script>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-name">R.B</div>
+      <div class="preloader-bar">
+        <div class="preloader-progress" id="preloaderProgress"></div>
+      </div>
+      <div class="preloader-counter" id="preloaderCounter">0%</div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">R.B</a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link" data-i18n="terminal_back">
+          <i class="fas fa-arrow-left"></i> Retour au portfolio
+        </a>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="nav-toggle-btn" id="langToggle" aria-label="Toggle language">
+          <span class="lang-label">EN</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Terminal Background -->
+  <div class="terminal-bg">
+    <div class="hero-grain"></div>
+    <div class="hero-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+      <div class="shape shape-5"></div>
+    </div>
+  </div>
+
+  <!-- Terminal Window -->
+  <div class="terminal-wrapper">
+    <div class="terminal-window">
+      <div class="terminal-titlebar">
+        <div class="terminal-dots">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <div class="terminal-title">rachid@portfolio: ~</div>
+        <div class="terminal-titlebar-spacer"></div>
+      </div>
+      <div class="terminal-body" id="terminalBody">
+        <div id="terminalOutput"></div>
+        <div class="terminal-input-line">
+          <span class="terminal-prompt">
+            <span class="prompt-user">rachid</span><span class="prompt-at">@</span><span class="prompt-host">portfolio</span><span class="prompt-colon">:</span><span class="prompt-path">~</span><span class="prompt-dollar">$</span>
+          </span>
+          <input type="text" id="terminalInput" class="terminal-input" autofocus autocomplete="off" spellcheck="false" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GSAP & Plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <!-- Terminal JS -->
+  <script src="js/terminal.js"></script>
+</body>
+</html>

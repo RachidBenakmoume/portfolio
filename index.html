@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <title>Rachid Benakmoume - Full Stack Developer</title>
+  <meta name="description"
+    content="Rachid Benakmoume - Full Stack Developer & Designer based in Toulouse, France. Specializing in Angular, Spring Boot, and modern web technologies." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Rachid Benakmoume - Full Stack Developer" />
+  <meta property="og:description" content="Full Stack Developer & Designer based in Toulouse, France. Specializing in Angular, Spring Boot, and modern web technologies." />
+  <meta property="og:image" content="assets/pfpdark.png" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:locale:alternate" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Rachid Benakmoume - Full Stack Developer" />
+  <meta name="twitter:description" content="Full Stack Developer & Designer based in Toulouse, France." />
+  <meta name="twitter:image" content="assets/pfpdark.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link href="css/main.css" rel="stylesheet" />
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit" async defer></script>
+
+  <!-- Data -->
+  <script src="js/projects.js"></script>
+  <script src="js/translations.js"></script>
+
+  <script>
+    (function () {
+      emailjs.init({ publicKey: "eLWRzRsxdoVxckkIj" });
+    })();
+    function onRecaptchaLoad() {
+      var widget = document.querySelector('.g-recaptcha');
+      if (!widget) return;
+      var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+      grecaptcha.render(widget, {
+        sitekey: '6LdbK6osAAAAANejs5eeJB4EaeuBN5N5fj8qhCpB',
+        theme: isDark ? 'dark' : 'light'
+      });
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-name">R.B</div>
+      <div class="preloader-bar">
+        <div class="preloader-progress" id="preloaderProgress"></div>
+      </div>
+      <div class="preloader-counter" id="preloaderCounter">0%</div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">R.B</a>
+      <div class="nav-links" id="navLinks">
+        <a href="#hero" class="nav-link active" data-i18n="nav_home">Accueil</a>
+        <a href="#about" class="nav-link" data-i18n="nav_about">A propos</a>
+        <a href="#experience" class="nav-link" data-i18n="nav_experience">Experience</a>
+        <a href="#projects" class="nav-link" data-i18n="nav_projects">Projets</a>
+        <a href="#education" class="nav-link" data-i18n="nav_education">Formation</a>
+        <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a href="terminal.html" class="btn-terminal" data-i18n="nav_terminal" aria-label="View in Terminal">
+          <i class="fas fa-terminal"></i>
+          <span>Terminal</span>
+        </a>
+        <button class="nav-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="nav-toggle-btn" id="langToggle" aria-label="Toggle language">
+          <span class="lang-label">EN</span>
+        </button>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-links">
+      <a href="#hero" class="mobile-link" data-i18n="nav_home">Accueil</a>
+      <a href="#about" class="mobile-link" data-i18n="nav_about">A propos</a>
+      <a href="#experience" class="mobile-link" data-i18n="nav_experience">Experience</a>
+      <a href="#projects" class="mobile-link" data-i18n="nav_projects">Projets</a>
+      <a href="#education" class="mobile-link" data-i18n="nav_education">Formation</a>
+      <a href="#contact" class="mobile-link" data-i18n="nav_contact">Contact</a>
+    </div>
+  </div>
+
+  <!-- ==================== HERO ==================== -->
+  <section id="hero" class="hero">
+    <div class="hero-bg">
+      <div class="hero-grain"></div>
+      <div class="hero-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+        <div class="shape shape-5"></div>
+      </div>
+    </div>
+    <div class="container hero-content">
+      <div class="hero-tag" data-i18n="hero_greeting">Bonjour, je suis</div>
+      <h1 class="hero-name">
+        <span class="hero-name-line">Rachid</span>
+        <span class="hero-name-line">Benakmoume<span class="accent-dot">.</span></span>
+      </h1>
+      <p class="hero-title" data-i18n="hero_title">Concepteur & Developpeur Full Stack</p>
+      <p class="hero-desc" data-i18n="hero_description">Creations numeriques innovantes &bull; Architecture logicielle
+        moderne</p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn-primary" data-i18n="hero_button">
+          <span>Voir mes projets</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="assets/CV_Rachid.pdf" class="btn-outline" download data-i18n="hero_download_cv">
+          <i class="fas fa-download"></i>
+          <span>Telecharger CV</span>
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="about_tag">01 — A propos</span>
+        <h2 class="section-title" data-i18n="about_title">A propos de moi</h2>
+      </div>
+
+      <div class="about-layout">
+        <!-- Left: Bio + Stats -->
+        <div class="about-left">
+          <div class="about-bio">
+            <p data-i18n="about_text_1">Developpeur Full Stack passionne, actuellement en Master Science du Logiciel a
+              l'Universite Toulouse Paul Sabatier. Je concois des applications web performantes, du front-end au
+              back-end, en mettant l'accent sur la qualite du code et l'experience utilisateur.</p>
+            <p data-i18n="about_text_2">Fort de deux stages en entreprise et de plus de sept projets realises, je
+              maitrise les architectures modernes et les pratiques DevOps. Toujours a la recherche de nouveaux defis
+              techniques.</p>
+          </div>
+          <div class="about-stats">
+            <div class="about-stat-item">
+              <span class="stat-number">7+</span>
+              <span class="stat-label" data-i18n="stat_projects">Projets</span>
+            </div>
+            <div class="about-stat-item">
+              <span class="stat-number">2</span>
+              <span class="stat-label" data-i18n="stat_internships">Stages</span>
+            </div>
+            <div class="about-stat-item">
+              <span class="stat-number">8+</span>
+              <span class="stat-label" data-i18n="stat_technologies">Technologies</span>
+            </div>
+          </div>
+          <div class="about-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Toulouse, France</span>
+          </div>
+        </div>
+
+        <!-- Right: Tech Stack -->
+        <div class="about-right">
+          <div class="about-tech-card">
+            <h3 data-i18n="skills_title">Stack Technique</h3>
+            <div class="tech-list">
+              <div class="tech-item">
+                <i class="fab fa-angular"></i>
+                <span>Angular</span>
+              </div>
+              <div class="tech-item">
+                <i class="fab fa-java"></i>
+                <span>Spring Boot</span>
+              </div>
+              <div class="tech-item">
+                <i class="fas fa-database"></i>
+                <span>MySQL</span>
+              </div>
+              <div class="tech-item">
+                <i class="fab fa-laravel"></i>
+                <span>Laravel</span>
+              </div>
+              <div class="tech-item">
+                <i class="fab fa-js"></i>
+                <span>JavaScript</span>
+              </div>
+              <div class="tech-item">
+                <i class="fab fa-docker"></i>
+                <span>Docker</span>
+              </div>
+              <div class="tech-item">
+                <i class="fab fa-git-alt"></i>
+                <span>Git</span>
+              </div>
+              <div class="tech-item">
+                <i class="fas fa-vial"></i>
+                <span>JUnit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EXPERIENCE ==================== -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="experience_tag">02 — Experience</span>
+        <h2 class="section-title" data-i18n="experience_title">Experience Professionnelle</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <!-- Experience 1 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-date" data-i18n="exp1_date">04/2025 - 08/2025</div>
+            <h3 class="timeline-role" data-i18n="exp1_title">Stage en Developpement d'Applications</h3>
+            <h4 class="timeline-company" data-i18n="exp1_company">Consort France</h4>
+            <p class="timeline-desc" data-i18n="exp1_desc">En charge de l'elaboration d'une solution de gestion integree
+              pour le centre de services.</p>
+            <ul class="timeline-points">
+              <li data-i18n="exp1_point1">Developpement d'une couverture de tests unitaires complete</li>
+              <li data-i18n="exp1_point2">Integration d'analyses de qualite et securite via SonarQube</li>
+              <li data-i18n="exp1_point3">Configuration de l'environnement DevOps avec Azure</li>
+              <li data-i18n="exp1_point4">Implementation de fonctionnalites IA pour l'analyse predictive</li>
+            </ul>
+            <div class="timeline-tags">
+              <span>Angular</span><span>Spring Boot</span><span>Azure DevOps</span><span>SonarQube</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience 2 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-date" data-i18n="exp2_date">02/2024 - 05/2024</div>
+            <h3 class="timeline-role" data-i18n="exp2_title">Stage en Conception Web</h3>
+            <h4 class="timeline-company" data-i18n="exp2_company">Entreprise Portuaire d'Alger</h4>
+            <p class="timeline-desc" data-i18n="exp2_desc">Conception et implementation d'une solution digitale pour la
+              gestion du personnel.</p>
+            <ul class="timeline-points">
+              <li data-i18n="exp2_point1">Developpement d'une interface utilisateur intuitive avec Laravel et Bootstrap
+              </li>
+              <li data-i18n="exp2_point2">Optimisation des flux de donnees avec l'infrastructure existante</li>
+              <li data-i18n="exp2_point3">Automatisation des processus de validation et notification</li>
+              <li data-i18n="exp2_point4">Amelioration de la productivite RH et satisfaction des employes</li>
+            </ul>
+            <div class="timeline-tags">
+              <span>Laravel</span><span>Bootstrap</span><span>MySQL</span><span>REST API</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROJECTS ==================== -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="projects_tag">03 — Projets</span>
+        <h2 class="section-title" data-i18n="projects_title">Projets</h2>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Projects injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Lightbox Modal -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="lightbox-content">
+      <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <div class="lightbox-img-wrapper">
+        <img src="" alt="" class="lightbox-img" id="lightboxImg" />
+      </div>
+      <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  </div>
+
+  <!-- ==================== EDUCATION ==================== -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="education_tag">04 — Formation</span>
+        <h2 class="section-title" data-i18n="education_title">Formation</h2>
+      </div>
+
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="edu-date" data-i18n="edu0_date">09/2025 - Present</div>
+          <h3 class="edu-title" data-i18n="edu0_title">Master Science du Logiciel</h3>
+          <p class="edu-location" data-i18n="edu0_location">Universite Toulouse Paul Sabatier - Toulouse, France</p>
+          <ul class="edu-points">
+            <li data-i18n="edu0_point1">Conception avancee de systemes logiciels distribues</li>
+            <li data-i18n="edu0_point2">Methodes formelles et verification de logiciels</li>
+            <li data-i18n="edu0_point3">Recherche et innovation en genie logiciel</li>
+          </ul>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="edu-date" data-i18n="edu1_date">09/2023 - 08/2025</div>
+          <h3 class="edu-title" data-i18n="edu1_title">Licence Informatique - Fondamentaux et Applications</h3>
+          <p class="edu-location" data-i18n="edu1_location">Universite de Bretagne Occidentale - Brest, France</p>
+          <ul class="edu-points">
+            <li data-i18n="edu1_point1">Conception et modelisation de systemes informatiques complexes</li>
+            <li data-i18n="edu1_point2">Developpement d'applications a partir de methodologies agiles</li>
+            <li data-i18n="edu1_point3">Exploration des architectures materielles et protocoles reseau</li>
+          </ul>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="edu-date" data-i18n="edu2_date">09/2021 - 06/2024</div>
+          <h3 class="edu-title" data-i18n="edu2_title">Licence en Genie Logiciel et Systemes d'Information</h3>
+          <p class="edu-location" data-i18n="edu2_location">Universite Houari Boumediene - Alger, Algerie</p>
+          <ul class="edu-points">
+            <li data-i18n="edu2_point1">Architecture et conception d'applications evolutives</li>
+            <li data-i18n="edu2_point2">Methodologies de developpement et assurance qualite</li>
+            <li data-i18n="edu2_point3">Integration de systemes et solutions logicielles d'entreprise</li>
+          </ul>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-icon"><i class="fas fa-certificate"></i></div>
+          <div class="edu-date" data-i18n="edu3_date">2023</div>
+          <h3 class="edu-title" data-i18n="edu3_title">CLES B2 Anglais</h3>
+          <p class="edu-location" data-i18n="edu3_location">Certification de competence en langue anglaise</p>
+          <p class="edu-desc" data-i18n="edu3_desc">Maitrise professionnelle de la communication en anglais, ecrite et
+            orale</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT ==================== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="contact_tag">05 — Contact</span>
+        <h2 class="section-title" data-i18n="contact_title">Contact</h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p class="contact-intro" data-i18n="contact_intro">Vous avez un projet en tete ou une opportunite ? N'hesitez
+            pas a me contacter.</p>
+          <div class="contact-details">
+            <a href="mailto:rachid.benakmoume@gmail.com" class="contact-detail">
+              <i class="fas fa-envelope"></i>
+              <span>rachid.benakmoume@gmail.com</span>
+            </a>
+            <div class="contact-detail">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Toulouse, France</span>
+            </div>
+            <div class="contact-detail">
+              <i class="fas fa-globe"></i>
+              <span data-i18n="contact_languages_list">Francais (Avance), Anglais (Avance)</span>
+            </div>
+          </div>
+          <div class="contact-socials">
+            <a href="https://www.linkedin.com/in/abderrachid-benakmoume/" class="social-link" target="_blank"
+              rel="noopener" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/RachidBenakmoume" class="social-link" target="_blank" rel="noopener"
+              aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <!-- Honeypot — invisible to humans, bots auto-fill it -->
+          <div class="form-honey" aria-hidden="true" tabindex="-1">
+            <input type="text" id="formWebsite" name="website" autocomplete="off" tabindex="-1" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <input type="text" id="formName" required autocomplete="name" />
+              <label for="formName" data-i18n="contact_name">Votre nom</label>
+            </div>
+            <div class="form-group">
+              <input type="email" id="formEmail" required autocomplete="email" />
+              <label for="formEmail" data-i18n="contact_email_input">Votre email</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" id="formSubject" required />
+            <label for="formSubject" data-i18n="contact_subject">Sujet</label>
+          </div>
+          <div class="form-group">
+            <textarea id="formMessage" rows="5" required></textarea>
+            <label for="formMessage" data-i18n="contact_message">Message</label>
+          </div>
+          <div class="form-recaptcha">
+            <div class="g-recaptcha"
+              id="recaptchaWidget"></div>
+          </div>
+          <button type="submit" class="btn-primary btn-submit" data-i18n="contact_send">
+            <span>Envoyer</span>
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-text">&copy; 2025 Rachid Benakmoume <span class="footer-hint" title="Try typing my name...">*</span></p>
+      <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+    </div>
+  </footer>
+
+  <!-- GSAP & Plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
+  <!-- Main JS -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>
