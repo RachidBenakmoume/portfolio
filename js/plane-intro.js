@@ -8,6 +8,38 @@
   if (!canvas || typeof THREE === 'undefined') return;
 
   // ---------------------------------------------------------------------------
+  // Skip path: repeat visits in this session, OR deep-links to a section.
+  // Tear down the overlay immediately and let the portfolio render normally.
+  // ---------------------------------------------------------------------------
+  const SESSION_KEY = 'rb_intro_seen';
+
+  // sessionStorage may throw in private mode / sandboxed iframes — fall back to "not seen"
+  let hasSeenIntro = false;
+  try {
+    hasSeenIntro = sessionStorage.getItem(SESSION_KEY) === '1';
+  } catch (e) {
+    console.warn('[plane-intro] sessionStorage unavailable, treating as first visit:', e.message);
+  }
+
+  // Treat empty / "#" / "#hero" / "#top" as "no specific destination" — still play intro.
+  const hash = (window.location.hash || '').toLowerCase();
+  const isDeepLink = hash.length > 1 && !['#hero', '#top'].includes(hash);
+
+  // Respect OS-level reduced-motion preference (vestibular disorders, etc.)
+  const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
+  if (hasSeenIntro || isDeepLink || prefersReducedMotion) {
+    const intro = document.getElementById('plane-intro');
+    const flash = document.getElementById('white-flash');
+    if (intro) intro.remove();
+    if (flash) flash.remove();
+    canvas.remove();
+    document.documentElement.classList.remove('intro-active');
+    document.body.classList.remove('intro-active');
+    return;
+  }
+
+  // ---------------------------------------------------------------------------
   // Scene setup
   // ---------------------------------------------------------------------------
   const scene = new THREE.Scene();
@@ -255,6 +287,13 @@
   function revealPortfolio() {
     if (revealed) return;
     revealed = true;
+
+    // Remember that this visitor has seen the intro — skip it on next page view
+    try {
+      sessionStorage.setItem(SESSION_KEY, '1');
+    } catch (e) {
+      console.warn('[plane-intro] could not persist intro-seen flag:', e.message);
+    }
 
     const intro = document.getElementById('plane-intro');
     if (intro) intro.classList.add('hidden');
