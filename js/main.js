@@ -60,6 +60,25 @@ function initApp() {
   initCustomCursor();
   initHeroTypingEffect();
   initKonamiCode();
+  initReplayIntro();
+}
+
+// =============================================
+// REPLAY INTRO BUTTON
+// Clears the "intro seen" flag and reloads so the F-22 sequence plays again.
+// =============================================
+function initReplayIntro() {
+  const btn = document.getElementById('replayIntro');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    try {
+      sessionStorage.removeItem('rb_intro_seen');
+    } catch (e) {
+      console.warn('[replayIntro] sessionStorage unavailable:', e.message);
+    }
+    // Strip any deep-link hash so the intro isn't auto-skipped on reload
+    window.location.replace(window.location.pathname + window.location.search);
+  });
 }
 
 // =============================================
