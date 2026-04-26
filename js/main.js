@@ -74,6 +74,12 @@ function initLenis() {
     touchMultiplier: 2,
     smoothWheel: true
   });
+  // Expose so the plane intro can resume it after the reveal
+  window.lenis = lenis;
+  // Plane intro is on top — keep the page locked underneath until reveal
+  if (document.documentElement.classList.contains('intro-active') && typeof lenis.stop === 'function') {
+    lenis.stop();
+  }
 
   // Use GSAP ticker as the single raf source (avoids double-raf conflict)
   if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {

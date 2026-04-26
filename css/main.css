@@ -1920,3 +1920,192 @@ a.contact-detail:hover {
     transform: translateY(8px);
   }
 }
+
+/* ============================================================
+   Plane Intro Overlay (F-22 cinematic intro)
+   ============================================================ */
+
+/* Lock the page underneath while the intro is on screen */
+html.intro-active,
+body.intro-active {
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
+#plane-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9001;
+  pointer-events: none;
+}
+
+#white-flash {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 9002;
+  pointer-events: none;
+  opacity: 0;
+}
+
+html[data-theme="light"] #white-flash {
+  background: #fff;
+}
+
+#plane-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  overflow: hidden;
+  transition: opacity 1.2s ease-out;
+}
+
+#plane-intro.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#plane-intro .bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+#plane-intro .content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 2rem 3rem;
+  box-sizing: border-box;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.hud-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+}
+
+.hud-corner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.6rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+}
+
+.hud-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  opacity: 0.7;
+}
+
+.hud-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+#start-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.85rem 2.5rem;
+  background: linear-gradient(180deg, #6c63ff 0%, #5a52d5 100%);
+  border: 1px solid #8a82ff;
+  border-radius: 4px;
+  backdrop-filter: blur(10px);
+  color: white;
+  cursor: pointer;
+  font-family: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  box-shadow:
+    0 0 0 1px rgba(108, 99, 255, 0.25),
+    0 0 20px rgba(108, 99, 255, 0.45),
+    0 4px 12px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  animation: plane-pulse-glow 2s ease-in-out infinite;
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.25s,
+    box-shadow 0.25s,
+    filter 0.25s;
+}
+
+#start-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow:
+    0 0 0 1px rgba(138, 130, 255, 0.5),
+    0 0 32px rgba(108, 99, 255, 0.75),
+    0 6px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  animation: none;
+}
+
+#start-btn:active {
+  transform: translateY(0);
+  filter: brightness(0.95);
+}
+
+#start-btn.engaged {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  animation: none;
+}
+
+@keyframes plane-pulse-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 0 1px rgba(108, 99, 255, 0.25),
+      0 0 20px rgba(108, 99, 255, 0.45),
+      0 4px 12px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(138, 130, 255, 0.4),
+      0 0 32px rgba(108, 99, 255, 0.7),
+      0 4px 12px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  }
+}
+
+.btn-label {
+  font-size: 1.15rem;
+  letter-spacing: 0.3em;
+  font-weight: 600;
+}
+
+.btn-sublabel {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  opacity: 0.75;
+}
+
+@media (max-width: 768px) {
+  #plane-intro .content {
+    padding: 1.25rem;
+  }
+  #start-btn {
+    padding: 0.7rem 1.5rem;
+  }
+  .btn-label {
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+  }
+}
