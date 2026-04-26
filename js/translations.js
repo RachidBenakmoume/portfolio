@@ -56,10 +56,13 @@ const translations = {
     // Projects Section
     projects_tag: "03 \u2014 Projets",
     projects_title: "Projets",
-    viewProject: "Voir le projet",
-    privateProject: "Projet priv\u00e9",
     viewGallery: "Voir les images",
     imageCounter: "Image {current} sur {total}",
+    projectCategoryInternship: "Stage",
+    projectCategoryAcademic: "Acad\u00e9mique",
+    projectCategoryPersonal: "Personnel",
+    projectActionRepo: "Code source",
+    projectActionLive: "D\u00e9mo en ligne",
 
     // Education Section
     education_tag: "04 \u2014 Formation",
@@ -164,9 +167,12 @@ const translations = {
     // Projects Section
     projects_tag: "03 \u2014 Projects",
     projects_title: "Projects",
-    viewProject: "View project",
-    privateProject: "Private project",
     viewGallery: "View gallery",
+    projectCategoryInternship: "Internship",
+    projectCategoryAcademic: "Academic",
+    projectCategoryPersonal: "Personal",
+    projectActionRepo: "Source code",
+    projectActionLive: "Live demo",
     imageCounter: "Image {current} of {total}",
 
     // Education Section

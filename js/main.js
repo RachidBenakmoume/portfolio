@@ -494,23 +494,44 @@ function renderProjects() {
   const lang = currentLang || 'fr';
   grid.innerHTML = '';
 
+  const T = translations[lang] || {};
+  const galleryLabel = T.viewGallery || 'View gallery';
+
+  const categoryLabels = {
+    internship: T.projectCategoryInternship || 'Internship',
+    academic:   T.projectCategoryAcademic   || 'Academic',
+    personal:   T.projectCategoryPersonal   || 'Personal'
+  };
+
   projects.forEach((project, index) => {
     const id = project.id;
-    const t = projectTranslations[lang];
+    const t = projectTranslations[lang] || {};
     const title = t[`project${id}_title`] || '';
     const desc = t[`project${id}_desc`] || '';
     const tags = t[`project${id}_tags`] || [];
-    const isPublic = project.isPublic;
-    const images = project.images;
+    const outcomes = t[`project${id}_outcomes`] || [];
+    const images = project.images || [];
     const num = String(index + 1).padStart(2, '0');
 
-    const linkText = isPublic
-      ? (translations[lang].viewProject || 'View project')
-      : (translations[lang].privateProject || 'Private project');
-    const linkIcon = isPublic ? '<i class="fas fa-arrow-right"></i>' : '<i class="fas fa-lock"></i>';
-    const linkClass = isPublic ? 'project-link' : 'project-link private';
+    const category = project.category || 'academic';
+    const categoryLabel = categoryLabels[category] || categoryLabels.academic;
 
-    const galleryLabel = translations[lang].viewGallery || 'View gallery';
+    // Optional action buttons — only render the ones the project actually has
+    const actions = [];
+    if (project.repoUrl) {
+      actions.push(`
+        <a class="project-action" href="${project.repoUrl}" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+          <span>${T.projectActionRepo || 'Source code'}</span>
+        </a>`);
+    }
+    if (project.liveUrl) {
+      actions.push(`
+        <a class="project-action project-action-primary" href="${project.liveUrl}" target="_blank" rel="noopener">
+          <i class="fas fa-arrow-up-right-from-square"></i>
+          <span>${T.projectActionLive || 'Live demo'}</span>
+        </a>`);
+    }
 
     const card = document.createElement('div');
     card.className = 'project-card';
@@ -528,15 +549,20 @@ function renderProjects() {
         ` : ''}
       </div>
       <div class="project-info">
-        <div class="project-number">PROJECT ${num}</div>
+        <div class="project-meta">
+          <span class="project-number">PROJECT ${num}</span>
+          <span class="project-category project-category-${category}">${categoryLabel}</span>
+        </div>
         <h3 class="project-title">${title}</h3>
         <p class="project-desc">${desc}</p>
+        ${outcomes.length > 0 ? `
+          <ul class="project-outcomes">
+            ${outcomes.map(o => `<li>${o}</li>`).join('')}
+          </ul>` : ''}
         <div class="project-tags">
           ${tags.map(tag => `<span>${tag}</span>`).join('')}
         </div>
-        <span class="${linkClass}">
-          ${linkText} ${linkIcon}
-        </span>
+        ${actions.length > 0 ? `<div class="project-actions">${actions.join('')}</div>` : ''}
       </div>
     `;
 

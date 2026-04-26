@@ -1239,13 +1239,47 @@ textarea {
   padding: 1rem 0;
 }
 
+.project-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
 .project-number {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--accent);
-  margin-bottom: 0.75rem;
   letter-spacing: 0.1em;
+}
+
+.project-category {
+  font-family: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
+  border: 1px solid currentColor;
+  line-height: 1;
+}
+
+.project-category-internship {
+  color: #a78bfa;
+  background: rgba(167, 139, 250, 0.1);
+}
+
+.project-category-academic {
+  color: #cbd5e1;
+  background: rgba(203, 213, 225, 0.1);
+}
+
+.project-category-personal {
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.1);
 }
 
 .project-title {
@@ -1261,6 +1295,32 @@ textarea {
   color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: 1.25rem;
+}
+
+.project-outcomes {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.project-outcomes li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+}
+
+.project-outcomes li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .project-tags {
@@ -1279,24 +1339,41 @@ textarea {
   font-weight: 500;
 }
 
-.project-link {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--accent);
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-action {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  transition: gap 0.3s;
-  cursor: pointer;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.55rem 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  background: transparent;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
 }
 
-.project-link:hover {
-  gap: 0.75rem;
+.project-action:hover {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+  transform: translateY(-1px);
 }
 
-.project-link.private {
-  color: var(--text-muted);
-  cursor: default;
+.project-action-primary {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.project-action-primary:hover {
+  background: var(--accent);
+  color: white;
 }
 
 /* ---------- LIGHTBOX ---------- */
@@ -1343,7 +1420,7 @@ textarea {
 .lightbox-content {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
   max-width: 90vw;
   max-height: 85vh;
 }
@@ -1364,6 +1441,9 @@ textarea {
 }
 
 .lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   width: 48px;
   height: 48px;
   display: flex;
@@ -1374,8 +1454,16 @@ textarea {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
   transition: background 0.3s;
-  flex-shrink: 0;
   cursor: pointer;
+  z-index: 1;
+}
+
+.lightbox-prev {
+  left: 1.5rem;
+}
+
+.lightbox-next {
+  right: 1.5rem;
 }
 
 .lightbox-nav:hover {
@@ -1810,12 +1898,20 @@ a.contact-detail:hover {
   }
 
   .lightbox-img {
-    max-width: 95vw;
+    max-width: 80vw;
   }
 
   .lightbox-nav {
     width: 36px;
     height: 36px;
+  }
+
+  .lightbox-prev {
+    left: 0.5rem;
+  }
+
+  .lightbox-next {
+    right: 0.5rem;
   }
 }
 
