@@ -522,7 +522,7 @@
     window.__vantaIntroEffect = VANTA.CLOUDS({
       el: '#plane-intro .bg',
       mouseControls: false,
-      touchControls: true,
+      touchControls: false,
       gyroControls: false
     });
   }
